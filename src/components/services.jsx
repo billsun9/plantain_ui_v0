@@ -5,8 +5,7 @@ export const Services = (props) => {
         <div className='section-title'>
           <h2>Our Services</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed
-            dapibus leonec.
+            We aim to build the best tools for creators, starting with micro-stores for the equipyment they use to make videos.
           </p>
         </div>
         <div className='row'>
