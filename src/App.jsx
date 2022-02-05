@@ -8,6 +8,7 @@ import { Gallery } from "./components/gallery";
 import { Testimonials } from "./components/testimonials";
 import { Team } from "./components/Team";
 import { Contact } from "./components/contact";
+import { Store } from "./components/Marketplace/Store";
 import { Marketplace } from "./components/Marketplace/Marketplace";
 import JsonData from "./data/data.json";
 import SmoothScroll from "smooth-scroll";
@@ -44,6 +45,9 @@ const App = () => {
         </Route>
         <Route path="/marketplace">
           <Marketplace data={landingPageData.Gallery}/>
+        </Route>
+		<Route path="/store">
+          <Store data={landingPageData.Gallery}/>
         </Route>
         <Route path="*">
           <div style={{padding: 28}}>
