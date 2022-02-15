@@ -154,6 +154,7 @@ export const Contact = (props) => {
             <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' rel='nofollow'>
               Bill Sun
             </a>
+		  //jay was rickrolled by this ^
           </p>
         </div>
       </div>
