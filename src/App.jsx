@@ -14,6 +14,7 @@ import SmoothScroll from "smooth-scroll";
 import "./App.css";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { InputForm } from "./form/inputForm";
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
   speed: 1000,
@@ -42,9 +43,15 @@ const App = () => {
             <Contact data={landingPageData.Contact} />
           </div>
         </Route>
-        <Route path="/marketplace">
+        <Route exact path="/marketplace">
           <Marketplace data={landingPageData.Gallery}/>
         </Route>
+        <Route exact path="/creator_onboard">
+          <InputForm />
+        </Route>
+        {/* <Route exact path="/marketplace/:id">
+          <div>Whats going on {params.id}</div>
+        </Route> */}
         <Route path="*">
           <div style={{padding: 28}}>
             <p>Error, the page you requested couldnt be found!</p>

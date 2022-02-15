@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { GalleryView } from './GalleryView'
 import { Image } from '../image'
 export const Marketplace = (props) => {
-
+    const [query, setQuery] = useState('');
     return (
         // <div id='marketplace' className='text-center'>
         //     <div className='container'>
@@ -38,25 +38,22 @@ export const Marketplace = (props) => {
 
                 <div className='row'>
                     <div className='row'>
-                        <div class="input-group" style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                            <div class="form-outline">
-                                <input type="search" id="form1" class="form-control" placeholder='Your favorite creator...' />
+                        <div className="input-group" style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                            <div className="form-outline">
+                                <input type="search" id="form1" required
+                                className="form-control" placeholder='Your favorite creator...' 
+                                value={query} onChange={(e) => setQuery(e.target.value)}/>
                             </div>
-                            <button type="button" class="btn btn-primary">
+                            <button type="button" className="btn btn-primary" onClick={() => {
+                                if(query) console.log(query);
+                            }}>
                                 Search
                             </button>
                         </div>
                     </div>
-                    <div className='portfolio-items'>
-                    {props.data
-                        ? props.data.map((d, i) => (
-                        <div key={`${d.title}-${i}`} className='col-sm-6 col-md-4 col-lg-4'>
-                            <Image title={d.title} largeImage={d.largeImage} smallImage={d.smallImage} />
-                        </div>
-                        ))
-                        : 'Loading...'}
-                    </div>
+                    <GalleryView data={props.data} />
                 </div>
+                <a href={`/marketplace/${query}`}>hello</a>
             </div>
         </div>
     )
