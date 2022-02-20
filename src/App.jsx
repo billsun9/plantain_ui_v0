@@ -1,15 +1,12 @@
 import { useState, useEffect } from "react";
 import { Navigation } from "./components/navigation";
 import { Header } from "./components/header";
-import { Features } from "./components/features";
 import { About } from "./components/about";
 import { Services } from "./components/services";
-import { Gallery } from "./components/gallery";
 import { Testimonials } from "./components/testimonials";
-import { Team } from "./components/Team";
 import { Contact } from "./components/contact";
-import { Store } from "./components/Store/Store";
 import { Marketplace } from "./components/Marketplace/Marketplace";
+import { SpecificCreator } from './components/Marketplace/SpecificCreator'
 import JsonData from "./data/data.json";
 import SmoothScroll from "smooth-scroll";
 import "./App.css";
@@ -50,9 +47,9 @@ const App = () => {
         <Route exact path="/creator_onboard">
           <InputForm />
         </Route>
-        {/* <Route exact path="/marketplace/:id">
-          <div>Whats going on {params.id}</div>
-        </Route> */}
+        <Route exact path="/marketplace/:id">
+          <SpecificCreator />
+        </Route>
         <Route path="*">
           <div style={{padding: 28}}>
             <p>Error, the page you requested couldnt be found!</p>

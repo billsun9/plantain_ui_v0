@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 var axios = require('axios');
 
 export const InputForm = (props) => {
@@ -25,7 +26,7 @@ export const InputForm = (props) => {
 
             var config = {
                 method: 'post',
-                url: 'http://127.0.0.1:5000/api/v0/post',
+                url: 'http://127.0.0.1:5000/api/v0/',
                 headers: { 
                     'Content-Type': 'text/plain'
                 },
@@ -34,7 +35,8 @@ export const InputForm = (props) => {
 
             axios(config)
                 .then(function (response) {
-                console.log(JSON.stringify(response.data));
+                    let c_id = response.data['c_id']
+                    window.location.href = `http://localhost:3000/marketplace/${c_id}`
                 })
                 .catch(function (error) {
                 console.log(error);
