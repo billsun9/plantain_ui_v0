@@ -14,6 +14,8 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { InputForm } from "./form/inputForm";
 
+// const BASE_URL = process.env.REACT_APP_BASE_URL
+
 export const scroll = new SmoothScroll('a[href*="#"]', {
   speed: 1000,
   speedAsDuration: true,
@@ -50,6 +52,7 @@ const App = () => {
         <Route exact path="/marketplace/:id">
           <SpecificCreator />
         </Route>
+        <Route exact path="/terms"></Route>
         <Route path="*">
           <div style={{padding: 28}}>
             <p>Error, the page you requested couldnt be found!</p>
@@ -57,7 +60,6 @@ const App = () => {
           </div>
         </Route>
       </Switch>
-      
     </Router>
     
   );

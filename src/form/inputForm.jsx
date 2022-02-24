@@ -2,6 +2,8 @@ import { useState } from 'react';
 
 var axios = require('axios');
 
+const BASE_URL = process.env.REACT_APP_BASE_URL
+
 export const InputForm = (props) => {
 
     const [name, setName] = useState("");
@@ -26,13 +28,13 @@ export const InputForm = (props) => {
 
             var config = {
                 method: 'post',
-                url: 'http://127.0.0.1:5000/api/v0/',
+                url: `${BASE_URL}`,
                 headers: { 
                     'Content-Type': 'text/plain'
                 },
                 data : data
             };
-
+            console.log(`sending post request to ${BASE_URL}`)
             axios(config)
                 .then(function (response) {
                     let c_id = response.data['c_id']
@@ -69,7 +71,7 @@ export const InputForm = (props) => {
                     </div>
                     <div className="policy">
                         <input type="checkbox" />
-                        <h3>I accept all <a href="./terms.html" target="_blank">terms & condition</a></h3>
+                        <h3>I accept all <a href="/terms" target="_blank">terms & condition</a></h3>
                     </div>
                     <div className="input-box button">
                         <input type="Submit" value="Register Now" onClick={(e) => handleSubmit(e)}/>

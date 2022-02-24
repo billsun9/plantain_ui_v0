@@ -1,13 +1,16 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+
+const BASE_URL = process.env.REACT_APP_BASE_URL
+
 export const SpecificCreator = (props) => {
     const params = useParams()
     const [data, setData] = useState("");
     useEffect(() => {
         var config = {
             method: 'get',
-            url: `http://127.0.0.1:5000/api/v0/creator_info/${params.id}`,
+            url: `${BASE_URL}/creator_info/${params.id}`,
             headers: { 
                 'Content-Type': 'text/plain'
             }
