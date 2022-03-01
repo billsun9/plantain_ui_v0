@@ -8,22 +8,24 @@ export const InputForm = (props) => {
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
-    const [camera, setCamera] = useState("");
-    const [microphone, setMicrophone] = useState("");
-    const [lighting, setLighting] = useState("");
-    const [keyboard, setKeyboard] = useState("");
+    const [channel, setChannel] = useState("");
+    const [tiktok, setTikTok] = useState("");
+    const [twitter, setTwitter] = useState("");
+    const [specialtyAreas, setSpecialtyAreas] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if(name === '' || email === '') alert("enter name and email");
+        else if((channel === '' && tiktok === '' && twitter === '')) alert("enter content platform");
+        else if((specialtyAreas === '')) alert("enter specialty areas");
         else {
             var data = JSON.stringify({
                 "name": name, 
                 "email": email,
-                "camera": camera,
-                "microphone": microphone,
-                "lighting": lighting,
-                "keyboard": keyboard
+                "channel": channel,
+                "tiktok": tiktok,
+                "twitter": twitter,
+                "specialtyAreas": specialtyAreas
             })
 
             var config = {
@@ -38,7 +40,8 @@ export const InputForm = (props) => {
             axios(config)
                 .then(function (response) {
                     let c_id = response.data['c_id']
-                    window.location.href = `http://localhost:3000/marketplace/${c_id}`
+                    // window.location.href = `http://localhost:3000/marketplace/${c_id}`
+                    window.location.href = `http://localhost:3000/marketplace`
                 })
                 .catch(function (error) {
                 console.log(error);
@@ -58,16 +61,16 @@ export const InputForm = (props) => {
                         <input type="text" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} />
                     </div>
                     <div className="input-box">
-                        <input type="text" placeholder="Camera" value={camera} onChange={(e) => setCamera(e.target.value)} />
+                        <input type="text" placeholder="YouTube Profile" value={channel} onChange={(e) => setChannel(e.target.value)} />
                     </div>
                     <div className="input-box">
-                        <input type="text" placeholder="Microphone" value={microphone} onChange={(e) => setMicrophone(e.target.value)} />
+                        <input type="text" placeholder="TikTok Profile" value={tiktok} onChange={(e) => setTikTok(e.target.value)} />
                     </div>
                     <div className="input-box">
-                        <input type="text" placeholder="Lighting" value={lighting} onChange={(e) => setLighting(e.target.value)} />
+                        <input type="text" placeholder="Twitter Handle" value={twitter} onChange={(e) => setTwitter(e.target.value)} />
                     </div>
                     <div className="input-box">
-                        <input type="text" placeholder="Keyboard" value={keyboard} onChange={(e) => setKeyboard(e.target.value)} />
+                        <input type="text" placeholder="Specialty Areas" value={specialtyAreas} onChange={(e) => setSpecialtyAreas(e.target.value)} />
                     </div>
                     <div className="policy">
                         <input type="checkbox" />
@@ -79,7 +82,6 @@ export const InputForm = (props) => {
                 </div>
             </div>
         </div>
-        
     );
   };
   

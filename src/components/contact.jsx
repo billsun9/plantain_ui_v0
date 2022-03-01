@@ -152,9 +152,8 @@ export const Contact = (props) => {
           <p>
             &copy; 2022 Plantain. Design by{' '}
             <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' rel='nofollow'>
-              Bill Sun
+              Plantain
             </a>
-		  //jay was rickrolled by this ^
           </p>
         </div>
       </div>

@@ -4,26 +4,6 @@ import { Image } from '../image'
 export const Marketplace = (props) => {
     const [query, setQuery] = useState('');
     return (
-        // <div id='marketplace' className='text-center'>
-        //     <div className='container'>
-        //         <div className='col-md-10 col-md-offset-1 section-title'>
-        //             <h2>Marketplace</h2>
-        //         </div>
-        //         <div className='row'></div>
-                // <div className='row'>
-                //     <div class="input-group" style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                //         <div class="form-outline">
-                //             <input type="search" id="form1" class="form-control" placeholder='Your favorite creator...' />
-                //         </div>
-                //         <button type="button" class="btn btn-primary">
-                //             Search
-                //         </button>
-                //     </div>
-                // </div>
-        //         <Gallery data={data}/>
-        //     </div>
-        // </div>
-
         <div id='marketplace' className='text-center'>
             <div className='container'>
                 <div className='section-title' style={{marginTop: '6vh'}}>
