@@ -9,15 +9,12 @@ export const Marketplace = (props) => {
                 <div className='section-title' style={{marginTop: '6vh'}}>
                     <h2>Marketplace</h2>
                     <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed
-                    dapibus leonec. Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed
-                    dapibus leonec. Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed
-                    dapibus leonec.
+                    Explore, network, and connect with your favorite creators!
                     </p>
                 </div>
 
                 <div className='row'>
-                    <div className='row'>
+                    {/* <div className='row'>
                         <div className="input-group" style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                             <div className="form-outline">
                                 <input type="search" id="form1" required
@@ -30,10 +27,10 @@ export const Marketplace = (props) => {
                                 Search
                             </button>
                         </div>
-                    </div>
+                    </div> */}
                     <GalleryView data={props.data} />
                 </div>
-                <a href={`/marketplace/${query}`}>hello</a>
+                {/* <a href={`/marketplace/${query}`}>hello</a> */}
             </div>
         </div>
     )

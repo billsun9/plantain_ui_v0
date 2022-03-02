@@ -1,8 +1,17 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { Card, Carousel } from 'antd';
 import axios from 'axios';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL
+
+const contentStyle = {
+    height: '160px',
+    color: '#fff',
+    lineHeight: '160px',
+    textAlign: 'center',
+    background: '#364d79',
+  };
 
 export const SpecificCreator = (props) => {
     const params = useParams()
@@ -20,6 +29,7 @@ export const SpecificCreator = (props) => {
             .then(function (response) {
                 console.log(response.data)
                 setData(() => response.data);
+                if(Object.keys(data).length !== 0) console.log(data);
             })
             .catch(function (error) {
             console.log(error);
@@ -42,10 +52,39 @@ export const SpecificCreator = (props) => {
         background: '#f4ffb8',
         padding: '12px 22px',
         borderRadius: '18px'}}>
-            <h2>Content Creator: {data['name']}</h2>
-            <div style={{display: 'block'}}>
-                Specialities: {data.specialtyAreas}
-            </div>
+            {Object.keys(data).length !== 0 && (
+                <div> 
+                    <h2>Content Creator: {data['name']}</h2>
+                    {/* <Carousel style={{width: '50vw', height: '20vh'}} autoplay>
+                        <div style={{height: 180, width: 180, textAlign: 'center'}}>Hey!</div>
+                        <div style={{height: 180, width: 180, textAlign: 'center'}}>Bye!</div>
+                    </Carousel> */}
+                    <div style={{padding: 30, background: '#ececec'}}>
+                        {data.channel.scraped.views > 0 && (
+                            <Card title="YouTube Channel" bordered={false} style={{ width: 300 }}>
+                                <p>Subscribers: {data.channel.scraped.subscribers}</p>
+                                <p>Cumulative Views: {data.channel.scraped.views}</p>
+                            </Card>
+                        )}
+                        
+                        {data.tiktok.scraped.views !== 0 && (
+                            <Card title="TikTok Channel" bordered={false} style={{ width: 300 }}>
+                                <p>Subscribers: {data.tiktok.scraped.subscribers}</p>
+                                <p>Cumulative Views: {data.tiktok.scraped.views}</p>
+                            </Card>
+                        )}
+                        {data.tiktok.scraped.views !== 0 && (
+                            <Card title="TikTok Channel" bordered={false} style={{ width: 300 }}>
+                                <p>Subscribers: {data.tiktok.scraped.subscribers}</p>
+                                <p>Cumulative Views: {data.tiktok.scraped.views}</p>
+                            </Card>
+                        )}
+                        <div style={{display: 'block'}}>
+                            Specialities: {data.specialtyAreas}
+                        </div>
+                    </div>
+                </div>
+            )}
             
 
         </div>

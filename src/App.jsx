@@ -10,7 +10,7 @@ import { SpecificCreator } from './components/Marketplace/SpecificCreator'
 import JsonData from "./data/data.json";
 import SmoothScroll from "smooth-scroll";
 import "./App.css";
-
+import "antd/dist/antd.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { InputForm } from "./form/inputForm";
 
